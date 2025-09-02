@@ -1,26 +1,19 @@
 package com.nec.controller;
-
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import com.nec.model.Project;
 import com.nec.service.ProjectService;
-
 import java.net.URI;
 import java.util.List;
-
 @RestController
 @RequestMapping("/api/projects")
-@CrossOrigin(origins = "https://localhost:5173") // allow React dev server
+@CrossOrigin(origins = "https://frontend-5-wd8r.onrender.com/") // allow React dev server
 public class ProjectController {
-
-    private final ProjectService service;
-
+	private final ProjectService service;
     public ProjectController(ProjectService service) {
         this.service = service;
     }
-
     @GetMapping
     public List<Project> all() {
         return service.getAllProjects();
